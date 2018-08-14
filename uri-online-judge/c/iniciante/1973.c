@@ -2,37 +2,40 @@
 
 int main() {
 
-	int estrelas = 0;
-	scanf("%d", &estrelas);
-	int carneiros[estrelas];
-	int i, total_carneiros = 0, roubados = 0, aux = 0, estrelas_roubadas = 0;
+	long long int estrelas = 0;
+	scanf("%lld", &estrelas);
+	long long int carneiros[estrelas];
+	long long int i, total_carneiros = 0, roubados = 0, estrelas_roubadas = 0;
 
 	for (i = 0; i < estrelas; i++) {
-		scanf("%d", &carneiros[i]);
-
+		scanf("%lld", &carneiros[i]);
 		total_carneiros += carneiros[i];
 	}
 
+	i = 0;
 	while (1) {
-		if(carneiros[aux] == 0 || aux < 0 || aux >= estrelas)
+		if(i < 0 || i >= estrelas)
 			break;
 
-		if(aux > estrelas_roubadas)
-			estrelas_roubadas = aux;
+		if(i > estrelas_roubadas)
+			estrelas_roubadas = i;
 
-		roubados += 1;
-		if(carneiros[aux] % 2 == 0) {
-			carneiros[aux] -= 1;
-			aux -= 1;
+		if(carneiros[i] % 2 == 0) {
+			if(carneiros[i] > 0) {
+				roubados++;
+				carneiros[i]--;
+			}
+			i--;
 		} else {
-			carneiros[aux] -= 1;
-			aux += 1;
+			if(carneiros[i] > 0) {
+				roubados++;
+				carneiros[i]--;
+			}
+			i++;
 		}
 	}
 
-	int nao_roubados = total_carneiros - roubados;
-
-	printf("%d %d\n", estrelas_roubadas + 1, nao_roubados);
+	printf("%lld %lld\n", estrelas_roubadas + 1, total_carneiros - roubados);
 
 	return 0;
 }
