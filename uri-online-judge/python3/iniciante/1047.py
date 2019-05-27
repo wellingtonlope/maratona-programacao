@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 horaInicio, minutoInicio, horaFim, minutoFim = map(int, input().split())
-hora, minuto = [0,0]
+hora, minuto = [0, 0]
 
 if horaInicio >= horaFim:
     hora = (24 + horaFim) - horaInicio
