@@ -36,6 +36,10 @@ str(3.14)  # string
 print('True' if True else 'False')
 [print(numero) for numero in range(2, 101, 2)]  # inicio, fim, passo
 ' 3.14 '.strip()  # '3.14'
+', '.join(map(str, [1, 2, 3])) # 1, 2, 3
+'1,2,3'.index('2') # buscar valor na string
+'AbA'.swapcase() # aBa
+'arroz feijao'.title() # Arroz Feijao
 
 # leia até EOF
 while True:
